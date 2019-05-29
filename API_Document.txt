@@ -26,6 +26,20 @@ Please be aware of requirements.txt
   3. on your web browser, put a url, http://127.0.0.1:5000
 
 
+Once run, put a valid url into an input field and click a 'Submit' button.
+
+you will be now given an output like following:
+
+your original URL is: http://www.google.com
+
+your shortened URL is: http://127.0.0.1:5000/1
+
+
+
+
+By clicking the shortened url, http://127.0.0.1:5000/1, you will be redirected
+to http://www.google.com
+
 
 2. view.py
   This file is responsible for VIEW. ie, controller in MVC
@@ -91,4 +105,3 @@ Please be aware of requirements.txt
   4.2. validate()
     - To customize validation
     - no further explanation. Very straighforward
- 
