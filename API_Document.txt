@@ -1,0 +1,94 @@
+Please note that Python 3 is required to run this program.
+Please be aware of requirements.txt
+
+1. manage.py
+  This file is to launch the URLShortener program.
+  how to launch it:
+  #python manage.py
+
+  usage: manage.py [-?] {initdb,dropdb,shell,runserver} ...
+
+  positional arguments:
+    {initdb,dropdb,shell,runserver}
+      initdb              create a db file. you should try this at very beginning.
+      dropdb              Drop all rows stored in DB
+      shell               Runs a Python shell inside Flask application context.
+      runserver           Runs the Flask development server i.e. app.run()
+
+  optional arguments:
+    -?, --help            show this help message and exit
+
+
+
+  So, try the below if it is very first time to run this program:
+  1. #python manage.py initdb
+  2. #python manage.py runserver
+  3. on your web browser, put a url, http://127.0.0.1:5000
+
+
+
+2. view.py
+  This file is responsible for VIEW. ie, controller in MVC
+
+  2.1. index()
+  - With a web url, http://{base_url}/, you will be prompted with a input text that
+    asks for a url to be shorted, which means a GET request is triggered.
+  - once you put a url, the POST method will be accomplished.
+  - once a valid url is provided, it will basically encode the url with base64 if the url
+    has never been provided earlier.
+  - The encoded url as well as its id will be stored and the id will be encoded with Base62 encoding
+    and this encoded id will be your shortened uri
+  - return : your input url and its shortened url will be provided for you
+
+
+  2.2. toBase62()
+  - Base62 encoding method
+  - arg1: num    it is an id for a specific url
+  - arg2: b      62. for base 62 encoding
+  - return : base62 encoded string
+
+
+  2.3. toBase10()
+  - This is to decode the base62-encoded id with the toBase62() method by making the base64 encoded url to base 10
+  - arg1: num    it is a base62-encoded id
+  - arg2: b      10. for base 10 decoding
+  - return : id in DB
+
+
+
+  2.4. redirect_to_da_url()
+  - This method is to redirect user to an actual website of a shorted url once
+    the user clicks the shortened url
+  - Once the shortened url is clicked, it will try to decode an encoded id,
+    and by retrieving the id, its based64 encoded url will be used to link the
+    shorted url to actual website.
+
+
+  2.5. page_not_found @app.errorhandler(404)
+  - for age not found errors
+
+
+  2.6 page_not_found @app.errorhandler(500)
+   - for server errors
+
+
+3. model.py
+- Basically it is a DB model. Model in MVC
+
+  3.1. WebUrl class
+    - This is basically for a table named WebUrl with 2 columns, id and shortUrl
+
+4. forms.py
+- This is basically an actual Form, i.e., the form that defines what will be shown
+  with flask_wtf features.
+
+  4.1. ShourtenUrlForm class
+    - we show only one label and one input field with a url, http://{baseurl}/
+    - For the input field, StringField is used rather than UrlField because
+      UrlField prevents my customized validation for the url provided by users,
+      which determines if the urls are appropriate to be used for being dbShortenedUrl
+
+  4.2. validate()
+    - To customize validation
+    - no further explanation. Very straighforward
+ 
