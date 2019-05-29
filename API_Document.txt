@@ -105,3 +105,9 @@ to http://www.google.com
   4.2. validate()
     - To customize validation
     - no further explanation. Very straighforward
+
+
+5. __init__.py
+after management.py, which deals with how to run this program, is triggered,
+this is an actual beginning of the program. System configuration such as
+session key, database uri etc. are dealt with here.
