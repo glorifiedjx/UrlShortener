@@ -1,0 +1,46 @@
+1. monitoring system
+ - Flask-MonitoringDashboard (MIT License so free)
+    : execution time for every endpoint
+    : Number of requests per endpoint per day
+    : number of hits for each endpoint
+    : Execution time per version
+
+
+
+
+CI/CD
+ - bamboo with bitbucket?
+ - Jenkins for free
+ - Gitlab, a rising star
+ - Travis, free in conjunction with GitHub
+ -
+
+
+
+How about with docker? Kubernetes? or even Openshift?
+
+- With docker, it is hard to manage.
+  disadvantages:
+    - no multi-tenant, no guarantee that what i am testing is 100% the same as others
+    - all done manually. 한 땀 한땀
+    - any problems? be yourself. no support
+
+  advantage:
+    - lightweight
+    - freeeeeeee unless you buy an enterprise version. (who would do that?)
+
+
+OpenShift:
+  good:
+   - multi-tenant, easy to use at least for users. For enterprises!
+   - support from Redhat
+   - great integration with Jenkins.
+   - usually click basis (almost 100% compatible with commands)
+   - I believe the best choice ever if you have enough money
+
+  bad:
+   - veery expensive
+   - arguing it is easy but it's new stuff that system engineers and devOps engineers need to
+      learn about and deep down, it's not even easy.
+  - Redhat is Redhat. and Redhat Korea it is
+  
